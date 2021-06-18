@@ -1,0 +1,474 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+.hamburger-menu{
+    width: 3rem;
+    height: 3rem;
+    position: fixed;
+    top: 5rem;
+    left: 5rem;
+    z-index: 400;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: left 0.7s;
+}
+
+
+.change .hamburger-menu{
+    left: 27rem;
+}
+
+.line {
+    width: 90%;
+    height: 0.2rem;
+    background-color: #f5f5f5;
+    box-shadow: 0 0.1rem 0.2rem rgba(0,0,0,0.2);
+}
+
+.change .line {
+    background-color: 
+    rgba(0,0,0,0.8);
+}
+
+.change .line-1{
+    transform: rotate(45deg) translate(0.3rem,0.8rem);
+}
+
+.change .line-2{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.change .line-3{
+    transform: rotate(-45deg) translate(0.3rem,-0.8rem);
+}
+
+.hamburger-menu span{
+    position: absolute;
+    right: 6rem;
+    width: 8rem;
+    height: 3rem;
+    margin-right: 2rem;
+    background-color: sandybrown;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+}
+
+.hamburger-menu:hover span{
+    opacity: 1;
+    visibility: visible;
+}
+
+.change .hamburger-menu span{
+    margin-right: -1.5rem;
+    position: absolute;
+}
+
+.hamburger-menu span::after{
+    content: "";
+    position: absolute;
+    border-left: 1.5rem solid sandybrown;
+    border-right: 1rem solid transparent;
+    border-bottom: 1rem solid transparent;
+    border-top: 1rem solid transparent;
+    top: 50%;
+    right: -2rem;
+    transform: translateY(-50%);
+    margin-right: 2rem;
+}
+
+.change .hamburger-menu span::after{
+    margin-right: -0.1rem;
+    position: absolute;
+}
+
+.header{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.img-wrapper{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    overflow: hidden;
+}
+
+@keyframes scale{
+    0% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.img-wrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    animation: scale 3s;
+}
+
+.banner{
+    position: absolute;
+    top: 30%;
+    left: 15%;
+}
+
+.banner h1{
+    font-family: 'Baloo Da 2', serif;
+    font-size: 7rem;
+    font-weight: 300;
+    color: #f5f5f5;
+    width: 50%;
+    height: 15rem;
+    letter-spacing: 0.2rem;
+    text-shadow: 0 0.3rem 0.5rem rgba(0,0,0,0.5);
+    animation: megatext 1s 0.5s
+    forwards;
+}
+
+.banner p{
+    font-family: 'Josefin Slab', serif;
+    font-size: 4rem;
+    color: #f3f3f3;
+    width: 70%;
+    letter-spacing: 0.1rem;
+    margin-bottom: 3rem;
+    text-shadow: 0 0.3rem 0.5rem rgba(0,0,0,0.5);
+    animation: megatext 1s 0.7s;
+}
+
+.banner button{
+    width: 17rem;
+    height: 5rem;
+    background-color: yellow;
+    font-size: 2rem;
+    border: outset;
+    font-family: 'Muli',serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 0.2rem 0.4rem rgba(0,0,0,0.2);
+    box-shadow: 0 0.3rem 0.5rem rgba(0,0,0,0.5);
+    cursor: pointer;
+    animation: megatext 1s 0.9s;
+}
+
+@keyframes megatext{
+    0% {
+        transform: translateY(40rem) rotateY(-20deg);
+    }
+    100% {
+        transform: translateY(0) rotateY(0);
+        opacity: 1;
+    }
+}
+
+.sidebar {
+    width: 35rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -40rem;
+    background-color: lemonchiffon;
+    transition: left 0.5s;
+    z-index: 100;
+}
+
+.change .sidebar{
+    left: 0;
+}
+
+.menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.menu-item {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.menu-link {
+    font-family: 'Baloo Da 2',serif;
+    font-size: 3rem;
+    color: #555;
+    position: relative;
+}
+
+.menu-link::before{
+    content: attr(data-content);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: lime;
+    width: 0;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.menu-link:hover:before {
+    width: 100%;
+}
+
+.biografi{
+    background: color #f3f3f3;;
+    object-fit: cover;
+    overflow: hidden;
+    padding-bottom: 8rem;
+}
+
+.section-header{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 7rem 0 5rem 0;
+}
+
+.section-header h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 5rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+}
+
+.underline{
+    width: 20rem;
+    height: 0.16rem;
+    background-color: black;
+    margin-bottom: 0.5rem;
+}
+
+.underline2{
+    width: 20rem;
+    height: 0.05rem;
+    background-color: black;
+}
+
+.biografi-foto{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+
+.biografi-foto img{
+    background-color: rgba(206, 99, 0, 0.979);
+    object-fit: cover;
+}
+
+.biografi-foto h3{
+    font-size: 1.7rem;
+    margin-top: 2rem;
+}
+
+.poin-penting{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.poin-penting h2{
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 2rem 0 1rem 8rem;
+}
+
+.paragraf {
+    font-size: small;
+    padding: 0 8rem 0 8rem;
+    color: rgba(0,0,0);
+    font-weight: 510;
+    text-align: justify;
+}
+
+.paragraf p{
+    padding-bottom: 1rem;
+}
+
+.album{
+    width: 100%;
+    height: 100%;
+    background-color: peachpuff;
+    padding-bottom: 8rem;
+}
+
+.foto-slide {
+    width: max-content;
+    position: relative;
+    margin: auto;
+    box-sizing: border-box;
+  }
+
+  .mySlides {
+    display: none;
+  }
+
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  .text {
+    color: #f2f2f2;
+    font-size: 30px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .slide {
+    color: #f2f2f2;
+    font-size: 20px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+    border-radius: 0 3px 3px 0;
+    background-color: rgba(0,0,0,0.8);
+    }
+
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+  @keyframes fade {
+    from {opacity: 0.4}
+    to {opacity: 1}
+  }
+
+/* Style inputs, select elements and textareas */
+input[type=text], select, textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+  }
+  
+  /* Style the label to display next to the inputs */
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+  /* Style the submit button */
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  /* Style the container */
+  .wkwk {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  
+  /* Floating column for labels: 25% width */
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+    font-size: 1.5rem;
+  }
+  
+  /* Floating column for inputs: 75% width */
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
